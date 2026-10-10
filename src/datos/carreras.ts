@@ -55,9 +55,9 @@ export const carreras: Carrera[] = [
       "Formación en software, sistemas de información, redes y gestión tecnológica.",
     imagenesHero: [
       {
-        src: "/heroes/comunidad-fich.webp",
-        alt: "Comunidad universitaria en una actividad institucional.",
-        nombre: "Comunidad universitaria",
+        src: "/laboratorios/hardware/hardware-04.webp",
+        alt: "Práctica de hardware y redes en la carrera de sistemas.",
+        nombre: "Práctica de hardware y redes",
       },
       {
         src: "/heroes/clase-universitaria.webp",
