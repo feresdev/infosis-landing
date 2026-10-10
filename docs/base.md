@@ -40,9 +40,8 @@ El contenido comparte un contenedor centrado de hasta 1180 px, con márgenes ada
 2. Oferta académica.
 3. Centros y laboratorios.
 4. Más oportunidades.
-5. Noticias y actividades.
-6. Galería institucional.
-7. Admisión.
+5. Galería institucional, con prioridad para actividades recientes.
+6. Admisión.
 
 ## 1. Portada institucional
 
@@ -170,38 +169,21 @@ La sección presenta oportunidades complementarias de la vida universitaria:
 
 La sección se implementa en `src/components/secciones/SeccionVidaUniversitaria.astro`.
 
-## 6. Noticias y actividades
+## 6. Galería institucional
 
-Los eventos se presentan en tarjetas con afiche, tipo, nombre, fechas y descripción. Cada afiche puede abrirse en el visor de imágenes a pantalla completa.
+La galería utiliza imágenes WebP optimizadas y prioriza el registro fotográfico de las actividades recientes. Se organiza en cinco carruseles independientes distribuidos en dos columnas:
 
-### XV EXPOCIENCIA
+- XV EXPOCIENCIA 2026.
+- INFOSIS BUILD FEST 2026.
 
-- **Fechas:** 30 de septiembre, 1 y 2 de octubre de 2026.
-- **Tipo:** Participación institucional.
-- **Descripción:** Espacio de ciencia, innovación, tecnología, desarrollo y emprendimiento.
-
-### INFOSIS BUILD FEST 2026
-
-- **Fechas:** 30 de septiembre y 1 de octubre de 2026.
-- **Tipo:** Evento presencial.
-- **Descripción:** Primera edición presencial dedicada al desarrollo web con agentes de inteligencia artificial.
-
-Los datos se mantienen en `src/datos/eventos.ts` y la sección en `src/components/secciones/SeccionEventos.astro`.
-
-## 7. Galería institucional
-
-La galería utiliza imágenes WebP optimizadas y se organiza en cuatro carruseles independientes distribuidos en dos columnas y dos filas:
-
-- Comunidad universitaria.
 - Formación y capacitación.
-- Laboratorio de cómputo.
-- Hardware y redes.
+- Laboratorio de cómputo, hardware y redes.
 
 Cada grupo muestra una imagen grande, permite cambiar entre sus imágenes con flechas y abre el visor reutilizable `src/components/VisorImagenes.astro`.
 
-Los datos se mantienen en `src/datos/galeria.ts` y la sección en `src/components/secciones/SeccionGaleria.astro`.
+Las fotografías recientes se encuentran en `public/galeria/`, con nombres normalizados y formato WebP. Los datos se mantienen en `src/datos/galeria.ts` y la sección en `src/components/secciones/SeccionGaleria.astro`.
 
-## 8. Modalidades de titulación
+## 7. Modalidades de titulación
 
 Las modalidades publicadas son comunes a las dos carreras:
 
@@ -211,7 +193,7 @@ Las modalidades publicadas son comunes a las dos carreras:
 
 Los datos se mantienen en `src/datos/titulacion.ts`.
 
-## 9. Admisión
+## 8. Admisión
 
 La sección de admisión dirige a consultas por WhatsApp mediante un mensaje prellenado para solicitar información oficial sobre el proceso de ingreso a ambas carreras.
 
@@ -226,11 +208,14 @@ public/
 ├── documentos/
 │   ├── malla-ingenieria-informatica.pdf
 │   └── malla-ingenieria-sistemas.pdf
-├── eventos/
-├── general/
-├── lab-capacitacion/
-├── lab-computo/
-├── lab-hardware/
+├── galeria/
+│   ├── build-fest-2026/
+│   └── expociencia-2026/
+├── heroes/
+├── laboratorios/
+│   ├── capacitacion/
+│   ├── computo/
+│   └── hardware/
 ├── centro-capacitacion.png
 ├── centro-computo.png
 ├── centro-hardware.png

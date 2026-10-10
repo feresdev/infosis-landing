@@ -79,10 +79,8 @@ Cada ficha incluye:
 - Contacto de responsables mediante WhatsApp.
 - Eventos con visor de afiches a pantalla completa.
 - Galería institucional organizada en cuatro grupos:
-  - Comunidad universitaria.
   - Formación y capacitación.
-  - Laboratorio de cómputo.
-  - Hardware y redes.
+  - Laboratorio de cómputo, hardware y redes.
 - Visor de imágenes reutilizable y aislado por contexto.
 - Imágenes optimizadas y cargadas de forma diferida.
 - Diseño responsive y modo oscuro permanente.
@@ -130,8 +128,7 @@ Portada
   -> Oferta académica
   -> Centros y laboratorios
   -> Más oportunidades
-  -> Noticias y actividades
-  -> Galería institucional
+  -> Galería institucional con actividades recientes
   -> Admisión
 ```
 
@@ -149,7 +146,6 @@ src/
 │   ├── Layout.astro
 │   ├── PiePagina.astro
 │   ├── TarjetaCentro.astro
-│   ├── TarjetaEvento.astro
 │   ├── VisorImagenes.astro
 │   └── secciones/
 │       ├── MallaCurricular.astro
@@ -157,13 +153,11 @@ src/
 │       ├── SeccionAdmision.astro
 │       ├── SeccionCarreras.astro
 │       ├── SeccionCentros.astro
-│       ├── SeccionEventos.astro
 │       ├── SeccionGaleria.astro
 │       └── SeccionVidaUniversitaria.astro
 ├── datos/
 │   ├── carreras.ts
 │   ├── centros.ts
-│   ├── eventos.ts
 │   ├── galeria.ts
 │   ├── mallas.ts
 │   └── titulacion.ts
@@ -186,8 +180,7 @@ Los datos editables se encuentran en `src/datos/`:
 
 - `carreras.ts`: información, imágenes hero y proyección profesional.
 - `centros.ts`: laboratorios, logos, descripciones y responsables.
-- `eventos.ts`: afiches, fechas y descripciones.
-- `galeria.ts`: imágenes institucionales agrupadas por contexto.
+- `galeria.ts`: imágenes institucionales y álbumes de actividades recientes.
 - `mallas.ts`: materias organizadas por semestre.
 - `titulacion.ts`: modalidades de titulación.
 
@@ -208,11 +201,14 @@ public/
 ├── documentos/
 │   ├── malla-ingenieria-informatica.pdf
 │   └── malla-ingenieria-sistemas.pdf
-├── eventos/
-├── general/
-├── lab-capacitacion/
-├── lab-computo/
-├── lab-hardware/
+├── galeria/
+│   ├── build-fest-2026/
+│   └── expociencia-2026/
+├── heroes/
+├── laboratorios/
+│   ├── capacitacion/
+│   ├── computo/
+│   └── hardware/
 ├── centro-capacitacion.png
 ├── centro-computo.png
 ├── centro-hardware.png

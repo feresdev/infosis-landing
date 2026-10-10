@@ -35,7 +35,8 @@ const { imagenes, indiceInicial, etiqueta } = Astro.props;
           >
             <img
               class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
-              src={imagen.src}
+              src={indice === 0 ? imagen.src : undefined}
+              data-src={imagen.src}
               alt=""
               loading="lazy"
               decoding="async"
@@ -79,10 +80,17 @@ const { imagenes, indiceInicial, etiqueta } = Astro.props;
       const pista = carrusel.querySelector<HTMLElement>("[data-galeria-pista]");
       const imagenes = pista?.children.length ?? 0;
       let activa = 0;
+      const cargarImagen = (indice: number) => {
+        const imagen =
+          pista?.children[indice]?.querySelector<HTMLImageElement>("img");
+        if (imagen?.dataset.src && !imagen.src) imagen.src = imagen.dataset.src;
+      };
       const actualizar = (indice: number) => {
         activa = (indice + imagenes) % imagenes;
+        cargarImagen(activa);
         if (pista) pista.style.transform = `translateX(-${activa * 100}%)`;
       };
+      actualizar(activa);
       carrusel
         .querySelector("[data-galeria-anterior]")
         ?.addEventListener("click", () => actualizar(activa - 1));

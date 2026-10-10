@@ -18,17 +18,17 @@ export const carreras: Carrera[] = [
       "Formación en software, inteligencia artificial, datos, redes y seguridad.",
     imagenesHero: [
       {
-        src: "/lab-computo/laboratorio-01.webp",
+        src: "/laboratorios/computo/laboratorio-01.webp",
         alt: "Estudiantes en el laboratorio de cómputo.",
         nombre: "Laboratorio de cómputo",
       },
       {
-        src: "/lab-computo/laboratorio-02.webp",
+        src: "/laboratorios/computo/laboratorio-02.webp",
         alt: "Práctica de computación en laboratorio.",
         nombre: "Práctica de computación",
       },
       {
-        src: "/lab-capacitacion/capacitacion-03.webp",
+        src: "/laboratorios/capacitacion/capacitacion-06.webp",
         alt: "Estudiantes durante una capacitación tecnológica.",
         nombre: "Capacitación tecnológica",
       },
@@ -55,17 +55,17 @@ export const carreras: Carrera[] = [
       "Formación en software, sistemas de información, redes y gestión tecnológica.",
     imagenesHero: [
       {
-        src: "/general/comunidad-fich.webp",
-        alt: "Comunidad universitaria en una actividad institucional.",
-        nombre: "Comunidad universitaria",
+        src: "/laboratorios/hardware/hardware-04.webp",
+        alt: "Práctica de hardware y redes en la carrera de sistemas.",
+        nombre: "Práctica de hardware y redes",
       },
       {
-        src: "/general/clase-universitaria.webp",
+        src: "/heroes/clase-universitaria.webp",
         alt: "Clase universitaria de informática y sistemas.",
         nombre: "Clase universitaria",
       },
       {
-        src: "/lab-capacitacion/capacitacion-02.webp",
+        src: "/laboratorios/capacitacion/capacitacion-08.webp",
         alt: "Actividad de capacitación tecnológica.",
         nombre: "Capacitación tecnológica",
       },

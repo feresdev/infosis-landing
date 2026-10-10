@@ -3,7 +3,7 @@ const enlaces = [
   ["#carreras", "Carreras"],
   ["#centros", "Centros"],
   ["#vida-universitaria", "Vida universitaria"],
-  ["#eventos", "Eventos"],
+  ["#galeria", "Galería"],
 ];
 const esInicio = Astro.url.pathname === "/";
 ---
@@ -13,7 +13,8 @@ const esInicio = Astro.url.pathname === "/";
   href={esInicio ? "#contenido" : "/#contenido"}>Saltar al contenido</a
 >
 <header
-  class="sticky top-0 z-40 border-b border-line/70 bg-paper/95 backdrop-blur-[14px]"
+  class="sticky top-0 z-[100] isolate border-b border-line/70 bg-paper/95 backdrop-blur-[14px]"
+  data-site-header
 >
   <span
     class="textura-tecnica textura-lateral pointer-events-none absolute inset-y-0 left-0 z-0 hidden md:block"
@@ -100,10 +101,6 @@ const esInicio = Astro.url.pathname === "/";
 
     toggle.addEventListener("click", () => {
       setMenuState(toggle.getAttribute("aria-expanded") !== "true");
-    });
-
-    menu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => setMenuState(false));
     });
 
     document.addEventListener("keydown", (event) => {

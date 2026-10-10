@@ -6,20 +6,20 @@ import VisorImagenes from "../VisorImagenes.astro";
 
 const grupos = [
   {
-    nombre: "Comunidad universitaria",
-    grupo: "Comunidad",
+    nombre: "XV EXPOCIENCIA 2026",
+    grupo: "XV EXPOCIENCIA 2026",
+  },
+  {
+    nombre: "INFOSIS BUILD FEST 2026",
+    grupo: "INFOSIS BUILD FEST 2026",
   },
   {
     nombre: "Formación y capacitación",
     grupo: "Capacitación",
   },
   {
-    nombre: "Laboratorio de cómputo",
-    grupo: "Cómputo",
-  },
-  {
-    nombre: "Hardware y redes",
-    grupo: "Hardware y redes",
+    nombre: "Laboratorio de cómputo, hardware y redes",
+    grupo: "Laboratorios",
   },
 ] as const;
 const secciones = grupos.map((grupo) => ({
@@ -43,9 +43,9 @@ const seccionesConIndice = secciones.map((seccion) => {
 >
   <div class="contenedor-pagina">
     <EncabezadoSeccion
-      eyebrow="Nuestra comunidad"
+      eyebrow="Actividades recientes"
       titulo="Aprendemos haciendo."
-      descripcion="Conoce nuestras aulas, laboratorios y actividades."
+      descripcion="Así vivimos nuestras últimas actividades, aulas y laboratorios."
       id="galeria-titulo"
     />
     <div
