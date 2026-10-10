@@ -20,7 +20,7 @@ export const centros: Centro[] = [
     logo: "/centro-computo.png",
     resumen:
       "Espacio para prácticas, cursos presenciales y actividades académicas con equipos informáticos.",
-    imagen: "/lab-computo/laboratorio-02.webp",
+    imagen: "/laboratorios/computo/laboratorio-02.webp",
     textoAlternativoImagen:
       "Vista del Laboratorio de Cómputo con sus estaciones de trabajo.",
     responsables: [
@@ -34,7 +34,7 @@ export const centros: Centro[] = [
     resumen:
       "Reparación y mantenimiento de equipos, instalación de software, configuración de redes, respaldo de datos y soporte TIC.",
     etiquetaContacto: "Contactar sus servicios",
-    imagen: "/lab-hardware/hardware-04.webp",
+    imagen: "/laboratorios/hardware/hardware-04.webp",
     textoAlternativoImagen:
       "Estudiantes revisan componentes de computadoras durante una práctica de hardware.",
     responsables: [
@@ -47,7 +47,7 @@ export const centros: Centro[] = [
     logo: "/centro-capacitacion.png",
     resumen:
       "Impulsa proyectos de investigación y capacitación en informática y sistemas mediante cursos y actividades especializadas.",
-    imagen: "/lab-capacitacion/capacitacion-03.webp",
+    imagen: "/laboratorios/capacitacion/capacitacion-06.webp",
     textoAlternativoImagen:
       "Estudiantes participan en una sesión de capacitación en un laboratorio de cómputo.",
     responsables: [

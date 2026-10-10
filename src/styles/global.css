@@ -99,7 +99,7 @@
   );
 }
 
-.visor-eventos::backdrop {
+.visor-imagenes::backdrop {
   background-color: rgb(3 10 16 / 92%);
   backdrop-filter: blur(6px);
 }
