@@ -91,6 +91,7 @@ const imagenHero = {
             id="numero-registro"
             name="registro"
             autocomplete="off"
+            inputmode="numeric"
             required
           />
           <button class="boton-principal justify-center" type="submit"
@@ -287,6 +288,7 @@ const imagenHero = {
                 id="celular-empresa"
                 name="celularEmpresa"
                 type="tel"
+                inputmode="numeric"
               />
             </div>
             <div data-labor-field="correoEmpresa">
@@ -609,6 +611,9 @@ const imagenHero = {
     input.id = `carrera-${name}`;
     input.name = name;
     input.type = type;
+    if (type === "number" || type === "tel") {
+      input.inputMode = "numeric";
+    }
     input.required = required;
     wrapper.append(label, input);
     return wrapper;
