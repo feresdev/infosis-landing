@@ -46,7 +46,7 @@ const imagenesHero = [
 >
   <div class="max-h-[min(90svh,54rem)] overflow-y-auto p-5 sm:p-8">
     <div
-      class="mb-8 flex items-start justify-between gap-5 border-b border-line pb-6"
+      class="mb-6 flex items-start justify-between gap-5 border-b border-line pb-5"
     >
       <div>
         <p class="mb-2 text-xs font-bold tracking-[.14em] text-sky uppercase">
@@ -70,7 +70,7 @@ const imagenesHero = [
       >
     </div>
 
-    <form id="consulta-egresado" class="grid gap-5" novalidate>
+    <form id="consulta-egresado" class="grid gap-6" novalidate>
       <div>
         <label class="mb-2 block text-sm font-semibold" for="numero-registro"
           >Número de registro</label
@@ -94,7 +94,7 @@ const imagenesHero = [
         </div>
       </div>
       <p
-        class="m-0 min-h-6 text-sm text-muted"
+        class="m-0 text-sm text-muted empty:hidden"
         data-lookup-status
         aria-live="polite"
       >
@@ -103,15 +103,15 @@ const imagenesHero = [
 
     <div class="mt-6 hidden" data-registration-wrapper>
       <div
-        class="mb-7 flex items-start justify-between gap-4 border border-sky/30 bg-brand-deep/60 p-4 max-[520px]:flex-col"
+        class="mb-6 flex items-start justify-between gap-4 border border-sky/30 bg-brand-deep/60 p-4 max-[520px]:flex-col"
         data-profile-summary
       >
       </div>
 
-      <form id="registro-egresado" class="grid gap-7" novalidate>
+      <form id="registro-egresado" class="grid gap-6" novalidate>
         <input type="hidden" name="tokenPreRegistro" data-registration-token />
 
-        <fieldset class="grid gap-5 border-0 border-t border-line pt-7 p-0">
+        <fieldset class="grid gap-5 border-0 border-t border-line pt-6 p-0">
           <EncabezadoFormulario
             titulo="Datos personales"
             descripcion="Comparte tus datos de contacto y residencia actual. Los campos marcados con * son obligatorios."
@@ -217,7 +217,7 @@ const imagenesHero = [
         </fieldset>
 
         <fieldset
-          class="grid gap-5 border-0 border-t border-line pt-7 p-0"
+          class="grid gap-5 border-0 border-t border-line pt-6 p-0"
           data-careers-fieldset
         >
           <EncabezadoFormulario
@@ -227,7 +227,7 @@ const imagenesHero = [
           <div class="grid gap-4" data-careers></div>
         </fieldset>
 
-        <fieldset class="grid gap-5 border-0 border-t border-line pt-7 p-0">
+        <fieldset class="grid gap-5 border-0 border-t border-line pt-6 p-0">
           <EncabezadoFormulario
             titulo="Situación profesional"
             descripcion="Indica tu ocupación actual y completa la información relacionada."
@@ -325,7 +325,7 @@ const imagenesHero = [
           </p>
         </fieldset>
 
-        <div class="border-t border-line pt-7">
+        <div class="border-t border-line pt-6">
           <label
             class="flex items-start gap-3 px-1 text-sm leading-6 text-muted"
           >
@@ -355,7 +355,7 @@ const imagenesHero = [
         </div>
       </form>
       <div
-        class="forma-acento hidden border border-sky/30 bg-sky/10 p-6 text-center sm:p-8"
+        class="forma-acento hidden border border-sky/30 bg-sky/10 px-0 py-6 text-center sm:py-8"
         data-registration-success
         role="status"
         aria-live="polite"
