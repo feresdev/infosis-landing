@@ -1,0 +1,11 @@
+---
+interface Props {
+  titulo: string;
+  descripcion: string;
+}
+
+const { titulo, descripcion } = Astro.props;
+---
+
+<legend class="mb-1 font-heading text-xl font-semibold">{titulo}</legend>
+<p class="m-0 text-sm leading-6 text-muted">{descripcion}</p>
