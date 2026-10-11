@@ -57,6 +57,19 @@
   background-color: color-mix(in srgb, var(--color-ice) 10%, transparent);
 }
 
+a[href],
+button:not(:disabled),
+summary,
+select,
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
 .boton-principal:focus-visible,
 .boton-secundario:focus-visible {
   outline: 3px solid var(--color-accent);
@@ -115,30 +128,6 @@
   backdrop-filter: blur(4px);
 }
 
-/* Paleta exclusiva del hero de egresados; no modifica las demás páginas. */
-.pagina-egresados {
-  --color-ink: #fff8dc;
-  --color-muted: #c9c0aa;
-  --color-line: #2b2518;
-  --color-brand: #6f4d00;
-  --color-brand-deep: #100e0a;
-  --color-sky: #f5c52f;
-  --color-ice: #fff8dc;
-  --color-paper: #08090b;
-  --color-tint: #15130e;
-  background-color: var(--color-paper);
-  color: var(--color-ink);
-}
-
-.pagina-egresados a,
-.pagina-egresados button:not(:disabled) {
-  cursor: pointer;
-}
-
-.pagina-egresados button:disabled {
-  cursor: not-allowed;
-}
-
 .spinner-accion {
   display: inline-block;
   width: 1rem;
@@ -153,48 +142,6 @@
 @keyframes girar-spinner {
   to {
     transform: rotate(360deg);
-  }
-}
-
-.hero-egresados {
-  --egresados-gold: #f5c52f;
-  --egresados-gold-dark: #b87900;
-  --egresados-gold-soft: #ffe58a;
-  --color-sky: var(--egresados-gold);
-  --color-ice: #fff8dc;
-  background-image: linear-gradient(
-    118deg,
-    #030405 0%,
-    #111318 54%,
-    #5b3e00 100%
-  );
-}
-
-.hero-egresados .hero-capa {
-  background: linear-gradient(
-    90deg,
-    rgb(3 4 5 / 96%) 0%,
-    rgb(12 12 13 / 88%) 42%,
-    rgb(91 62 0 / 58%) 100%
-  );
-}
-
-.hero-egresados .boton-principal {
-  background-color: var(--egresados-gold);
-  color: #19130a;
-}
-
-.hero-egresados .boton-principal:hover {
-  background-color: var(--egresados-gold-soft);
-}
-
-.hero-interno {
-  min-height: clamp(34rem, calc(100svh - 150px), 46rem) !important;
-}
-
-@media (max-width: 820px) {
-  .hero-interno {
-    min-height: clamp(32rem, calc(84svh - 105px), 44rem) !important;
   }
 }
 
@@ -219,6 +166,10 @@
     rgb(0 82 125 / 65%) 67%,
     rgb(4 43 74 / 48%) 100%
   );
+}
+
+.hero-estado {
+  min-height: clamp(38rem, calc(100svh - 72px), 50rem);
 }
 
 .hero-indicador[aria-pressed="true"] {
@@ -260,11 +211,23 @@
       rgb(4 43 74 / 88%) 100%
     );
   }
+
+  .hero-estado {
+    min-height: clamp(32rem, calc(84svh - 105px), 44rem);
+  }
 }
 
 @utility forma-acento {
   border-top-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+}
+
+@utility seccion-institucional {
+  padding-block: clamp(3.5rem, 5vw, 4.5rem);
+}
+
+@utility seccion-amplia {
+  padding-block: clamp(4rem, 8vw, 7rem);
 }
 
 @utility textura-tecnica {

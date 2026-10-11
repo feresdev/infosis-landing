@@ -22,7 +22,7 @@ const baseUrl = Astro.site ?? Astro.url;
 const canonical = new URL(Astro.url.pathname, baseUrl);
 const socialImage = new URL(image, baseUrl);
 const organizationUrl = new URL("/", baseUrl).toString();
-const logoUrl = new URL("/escudo-infosis.png", baseUrl).toString();
+const logoUrl = new URL("/escudo-infosis.webp", baseUrl).toString();
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -84,8 +84,8 @@ const structuredData = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <meta name="twitter:image:alt" content={imageAlt} />
-    <link rel="icon" href="/escudo-infosis.png" type="image/png" />
-    <link rel="shortcut icon" href="/escudo-infosis.png" type="image/png" />
+    <link rel="icon" href="/escudo-infosis.webp" type="image/webp" />
+    <link rel="shortcut icon" href="/escudo-infosis.webp" type="image/webp" />
     <title>{title}</title>
     <Analytics />
     <script

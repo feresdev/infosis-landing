@@ -1,0 +1,29 @@
+---
+import PanelBase from "./PanelBase.astro";
+
+interface Props {
+  titulo: string;
+  items: string[];
+}
+
+const { titulo, items } = Astro.props;
+---
+
+<PanelBase>
+  <div class="absolute inset-x-0 top-0 h-1 bg-sky" aria-hidden="true"></div>
+  <p class="mb-5 text-xs font-bold tracking-[.14em] text-sky uppercase">
+    {titulo}
+  </p>
+  <ul class="m-0 grid list-none gap-3 p-0">
+    {
+      items.map((item) => (
+        <li class="flex gap-3 border-b border-sky/20 pb-3 leading-6 text-ice last:border-b-0 last:pb-0">
+          <span class="text-sky" aria-hidden="true">
+            ↗
+          </span>
+          {item}
+        </li>
+      ))
+    }
+  </ul>
+</PanelBase>

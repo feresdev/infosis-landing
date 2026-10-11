@@ -1,0 +1,76 @@
+---
+import CarruselHero from "./CarruselHero.astro";
+import MigasNavegacion from "./MigasNavegacion.astro";
+import PanelDetalle from "./PanelDetalle.astro";
+
+interface ImagenHero {
+  src: string;
+  alt: string;
+  nombre: string;
+}
+
+interface ItemMiga {
+  texto: string;
+  href?: string;
+}
+
+interface Props {
+  migas: ItemMiga[];
+  imagenes?: ImagenHero[];
+  titulo: string;
+  descripcion: string;
+  labelledby: string;
+  detalleTitulo: string;
+  detalleItems: string[];
+  accionTexto?: string;
+  accionHref?: string;
+}
+
+const {
+  migas,
+  imagenes = [],
+  titulo,
+  descripcion,
+  labelledby,
+  detalleTitulo,
+  detalleItems,
+  accionTexto,
+  accionHref,
+} = Astro.props;
+---
+
+<section class="border-b border-line bg-paper py-5">
+  <div class="contenedor-pagina">
+    <MigasNavegacion items={migas} />
+  </div>
+</section>
+
+<CarruselHero imagenes={imagenes} labelledby={labelledby}>
+  <div
+    class="contenedor-pagina seccion-amplia relative z-10 grid grid-cols-[1.2fr_.8fr] items-center gap-12 max-[820px]:grid-cols-1 max-[820px]:gap-8"
+  >
+    <div
+      class="max-[820px]:flex max-[820px]:flex-col max-[820px]:items-center max-[820px]:text-center"
+    >
+      <h1
+        class="mb-5 max-w-[700px] font-heading text-[clamp(2.7rem,6vw,5rem)] font-semibold leading-[1.05] tracking-[-.025em]"
+        id={labelledby}
+      >
+        {titulo}
+      </h1>
+      <p class="mb-8 max-w-[650px] text-lg leading-8 text-ice">
+        {descripcion}
+      </p>
+      {
+        accionHref && accionTexto ? (
+          <a class="boton-principal" href={accionHref}>
+            {accionTexto} <span aria-hidden="true">↓</span>
+          </a>
+        ) : (
+          <slot name="accion" />
+        )
+      }
+    </div>
+    <PanelDetalle titulo={detalleTitulo} items={detalleItems} />
+  </div>
+</CarruselHero>

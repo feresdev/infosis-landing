@@ -1,21 +1,13 @@
 ---
-import Layout from "../components/Layout.astro";
-import BarraNavegacion from "../components/BarraNavegacion.astro";
+import PaginaInstitucional from "../components/PaginaInstitucional.astro";
 import RegistroEgresados from "../components/RegistroEgresados.astro";
-import PiePagina from "../components/PiePagina.astro";
 ---
 
-<Layout
+<PaginaInstitucional
   title="Registro de egresados · Informática y Sistemas · FICH · UAGRM"
   description="Regístrate como egresado de Ingeniería Informática e Ingeniería en Sistemas de la FICH · UAGRM y mantente conectado con nuestra comunidad profesional."
   image="/heroes/portada-egresados.webp"
   imageAlt="Registro de egresados de Informática y Sistemas · FICH · UAGRM"
 >
-  <div class="pagina-egresados">
-    <BarraNavegacion />
-    <main id="contenido">
-      <RegistroEgresados />
-    </main>
-    <PiePagina />
-  </div>
-</Layout>
+  <RegistroEgresados />
+</PaginaInstitucional>

@@ -1,0 +1,44 @@
+---
+import CircuitosDecorativos from "./CircuitosDecorativos.astro";
+
+interface Props {
+  codigo: string;
+  titulo: string;
+  destacado: string;
+  labelledby: string;
+}
+
+const { codigo, titulo, destacado, labelledby } = Astro.props;
+---
+
+<section
+  class="hero-estado fondo-institucional relative flex items-center overflow-hidden border-b border-line text-ice"
+  aria-labelledby={labelledby}
+>
+  <div
+    class="contenedor-pagina relative z-10 grid w-full grid-cols-1 justify-items-center gap-2 text-center"
+  >
+    <div class="order-2 max-w-[700px]">
+      <h1
+        id={labelledby}
+        class="mb-5 max-w-[700px] font-heading text-[clamp(2.7rem,6vw,5rem)] font-semibold leading-[1.05] tracking-[-.025em]"
+      >
+        {titulo}
+        <span class="text-sky">{destacado}</span>
+      </h1>
+      <div class="flex flex-wrap justify-center gap-3">
+        <slot />
+      </div>
+    </div>
+    <div
+      class="relative order-1 grid min-h-[15rem] w-full max-w-[48rem] place-items-center max-[820px]:min-h-[11rem]"
+      aria-hidden="true"
+    >
+      <CircuitosDecorativos id={`resplandor-estado-${codigo}`} />
+      <span
+        class="relative z-10 font-heading text-[clamp(5rem,14vw,10rem)] font-bold leading-none text-ice/90"
+        >{codigo}</span
+      >
+    </div>
+  </div>
+</section>

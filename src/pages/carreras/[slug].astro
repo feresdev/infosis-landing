@@ -1,8 +1,6 @@
 ---
-import Layout from "../../components/Layout.astro";
-import BarraNavegacion from "../../components/BarraNavegacion.astro";
+import PaginaInstitucional from "../../components/PaginaInstitucional.astro";
 import FichaCarrera from "../../components/FichaCarrera.astro";
-import PiePagina from "../../components/PiePagina.astro";
 import { carreras } from "../../datos/carreras";
 import { mallas } from "../../datos/mallas";
 
@@ -19,16 +17,12 @@ export function getStaticPaths() {
 const { carrera, semestres } = Astro.props;
 ---
 
-<Layout
+<PaginaInstitucional
   title={`${carrera.nombre} · FICH · UAGRM`}
   description={carrera.id === "informatica"
     ? "Estudia Ingeniería Informática en la FICH · UAGRM y fórmate en software, inteligencia artificial, datos, redes, ciberseguridad e innovación tecnológica."
     : "Estudia Ingeniería en Sistemas en la FICH · UAGRM y fórmate en software, datos, redes, gestión tecnológica y soluciones para organizaciones."}
   imageAlt={`${carrera.nombre} de la FICH · UAGRM`}
 >
-  <BarraNavegacion />
-  <main id="contenido">
-    <FichaCarrera carrera={carrera} semestres={semestres} />
-  </main>
-  <PiePagina />
-</Layout>
+  <FichaCarrera carrera={carrera} semestres={semestres} />
+</PaginaInstitucional>

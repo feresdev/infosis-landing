@@ -3,8 +3,7 @@ import type { Carrera } from "../datos/carreras";
 import type { Semestre } from "../datos/mallas";
 import MallaCurricular from "./secciones/MallaCurricular.astro";
 import EncabezadoSeccion from "./EncabezadoSeccion.astro";
-import CarruselHero from "./CarruselHero.astro";
-import MigasNavegacion from "./MigasNavegacion.astro";
+import HeroInterno from "./HeroInterno.astro";
 import { modalidadesTitulacion } from "../datos/titulacion";
 
 interface Props {
@@ -15,71 +14,25 @@ interface Props {
 const { carrera, semestres } = Astro.props;
 ---
 
-<section class="border-b border-line bg-paper py-5">
-  <div class="contenedor-pagina">
-    <MigasNavegacion
-      items={[
-        { texto: "Inicio", href: "/" },
-        { texto: "Carreras", href: "/#carreras" },
-        { texto: carrera.nombre },
-      ]}
-    />
-  </div>
-</section>
-
-<CarruselHero
+<HeroInterno
+  migas={[
+    { texto: "Inicio", href: "/" },
+    { texto: "Carreras", href: "/#carreras" },
+    { texto: carrera.nombre },
+  ]}
   imagenes={carrera.imagenesHero}
+  titulo={carrera.nombre}
+  descripcion={carrera.resumen}
   labelledby="carrera-titulo"
-  class="hero-interno"
->
-  <div
-    class="contenedor-pagina relative z-10 grid grid-cols-[1.2fr_.8fr] items-center gap-12 py-[clamp(4rem,8vw,7rem)] max-[820px]:grid-cols-1 max-[820px]:gap-8"
-  >
-    <div
-      class="max-[820px]:flex max-[820px]:flex-col max-[820px]:items-center max-[820px]:text-center"
-    >
-      <h1
-        class="mb-5 font-heading text-[clamp(2.7rem,6vw,5rem)] font-semibold leading-[1.05] tracking-[-.025em]"
-        id="carrera-titulo"
-      >
-        {carrera.nombre}
-      </h1>
-      <p class="mb-8 max-w-[650px] text-lg leading-8 text-ice">
-        {carrera.resumen}
-      </p>
-      <a class="boton-principal" href="#plan-estudios"
-        >Ver plan de estudios <span aria-hidden="true">↓</span></a
-      >
-    </div>
-    <div
-      class="forma-acento relative overflow-hidden border border-sky/40 bg-brand-deep/85 p-6 shadow-[0_18px_45px_rgb(0_30_58_/_35%)] backdrop-blur-sm md:p-8"
-    >
-      <div class="absolute inset-x-0 top-0 h-1 bg-sky" aria-hidden="true"></div>
-      <p class="mb-5 text-xs font-bold tracking-[.14em] text-sky uppercase">
-        Áreas de formación
-      </p>
-      <ul class="m-0 grid list-none gap-3 p-0">
-        {
-          carrera.areas.map((area) => (
-            <li class="flex gap-3 border-b border-sky/20 pb-3 leading-6 text-ice">
-              <span class="text-sky" aria-hidden="true">
-                ↗
-              </span>
-              {area}
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </div>
-</CarruselHero>
+  detalleTitulo="Áreas de formación"
+  detalleItems={carrera.areas}
+  accionTexto="Ver plan de estudios"
+  accionHref="#plan-estudios"
+/>
 
 {
   carrera.aplicaciones && (
-    <section
-      class="bg-paper py-[clamp(4rem,8vw,7rem)]"
-      aria-labelledby="campo-titulo"
-    >
+    <section class="bg-paper seccion-amplia" aria-labelledby="campo-titulo">
       <div class="contenedor-pagina grid grid-cols-[.8fr_1.2fr] gap-10 max-[720px]:grid-cols-1 max-[720px]:gap-4">
         <div>
           <EncabezadoSeccion
@@ -106,7 +59,7 @@ const { carrera, semestres } = Astro.props;
 <MallaCurricular carrera={carrera} semestres={semestres} />
 
 <section
-  class="fondo-institucional py-[clamp(4rem,8vw,7rem)] text-ice"
+  class="fondo-institucional seccion-amplia text-ice"
   id="titulacion"
   aria-labelledby="titulacion-carrera-titulo"
 >

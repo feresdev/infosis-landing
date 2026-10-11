@@ -1,0 +1,29 @@
+---
+import Layout from "./Layout.astro";
+import BarraNavegacion from "./BarraNavegacion.astro";
+import PiePagina from "./PiePagina.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  robots?: string;
+}
+
+const { title, description, image, imageAlt, robots } = Astro.props;
+---
+
+<Layout
+  title={title}
+  description={description}
+  image={image}
+  imageAlt={imageAlt}
+  robots={robots}
+>
+  <BarraNavegacion />
+  <main id="contenido">
+    <slot />
+  </main>
+  <PiePagina />
+</Layout>
