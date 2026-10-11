@@ -322,12 +322,15 @@ const imagenHero = {
             >
           </label>
           <p
-            class="mt-5 min-h-6 text-sm text-muted"
+            class="mt-3 min-h-0 text-sm text-muted empty:hidden"
             data-registration-status
             aria-live="polite"
           >
           </p>
-          <button class="boton-principal mt-2" type="submit" disabled
+          <button
+            class="boton-principal mt-3 w-full justify-center"
+            type="submit"
+            disabled
             >Enviar mi registro <span aria-hidden="true">→</span></button
           >
         </div>
@@ -347,11 +350,13 @@ const imagenHero = {
           carrera.
         </p>
         <button
-          class="boton-secundario text-sm"
+          class="grid size-10 place-items-center rounded-full border border-line text-xl text-muted transition-colors hover:border-sky hover:text-sky focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
           type="button"
           data-new-registration
+          aria-label="Buscar otro registro"
+          title="Buscar otro registro"
         >
-          Registrar otro egresado
+          <span aria-hidden="true">↻</span>
         </button>
       </div>
     </div>
@@ -630,12 +635,6 @@ const imagenHero = {
     placeholder.textContent = "Selecciona una opción";
     select.append(placeholder);
     gruposTitulacion.forEach((grupo) => {
-      if (grupo.nivel === "Graduación directa") {
-        const separator = document.createElement("option");
-        separator.disabled = true;
-        separator.textContent = "──────── Graduación directa ────────";
-        select.append(separator);
-      }
       grupo.opciones.forEach((opcion) => {
         const option = document.createElement("option");
         option.value = opcion;
@@ -655,6 +654,7 @@ const imagenHero = {
       const title = document.createElement("h3");
       const codeLabel = document.createElement("span");
       const careerName = document.createElement("span");
+      const careerType = document.createElement("span");
       const fields = document.createElement("div");
       const code = document.createElement("input");
       const plan = document.createElement("input");
@@ -667,6 +667,12 @@ const imagenHero = {
         "whitespace-nowrap text-sm font-bold tracking-wide text-sky";
       codeLabel.textContent = `${carrera.codigoCarrera}-${carrera.plan}`;
       careerName.textContent = carrera.carrera;
+      careerType.className =
+        "rounded-full border border-line bg-tint px-2 py-0.5 text-xs font-semibold tracking-wide text-muted";
+      careerType.textContent =
+        carrera.tipoCarrera === "PAR"
+          ? "Carrera paralela"
+          : "Carrera de origen";
       fields.className = "grid grid-cols-2 gap-4 max-[620px]:grid-cols-1";
       code.type = "hidden";
       code.name = `carreras[${index}][codigoCarrera]`;
@@ -689,7 +695,7 @@ const imagenHero = {
       yearInput?.setAttribute("max", String(new Date().getFullYear()));
       yearInput?.setAttribute("step", "1");
       fields.append(year, modality);
-      title.append(codeLabel, careerName);
+      title.append(codeLabel, careerName, careerType);
       card.append(title, code, plan, type, fields);
       careersContainer.append(card);
     });
