@@ -66,10 +66,10 @@ const imagenHero = {
           id="registro-titulo"
           class="mb-3 font-heading text-3xl font-semibold leading-tight"
         >
-          Tu experiencia fortalece nuestra carrera.
+          Registra tu trayectoria.
         </h2>
         <p class="m-0 max-w-2xl text-sm leading-6 text-muted">
-          Registra tus datos y mantente conectado con la carrera.
+          Completa tus datos para mantenerte conectado.
         </p>
       </div>
       <button
@@ -461,8 +461,8 @@ const imagenHero = {
   closeRegistration?.addEventListener("click", () =>
     registrationDialog?.close(),
   );
-  registrationDialog?.addEventListener("click", (event) => {
-    if (event.target === registrationDialog) registrationDialog.close();
+  registrationDialog?.addEventListener("cancel", (event) => {
+    event.preventDefault();
   });
 
   const setStatus = (

@@ -194,7 +194,7 @@
 
 @media (max-width: 820px) {
   .hero-interno {
-    min-height: clamp(30rem, calc(78svh - 105px), 40rem) !important;
+    min-height: clamp(32rem, calc(84svh - 105px), 44rem) !important;
   }
 }
 

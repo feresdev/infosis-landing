@@ -1,164 +1,31 @@
 ---
-import CarruselHero from "../CarruselHero.astro";
+import CarruselPortada from "../CarruselPortada.astro";
 
-const imagenesHero = [
+const diapositivas = [
   {
-    src: "/heroes/clase-universitaria.webp",
+    imagen: "/heroes/clase-universitaria.webp",
     alt: "Clase universitaria de la Dirección de Carrera.",
     nombre: "Clase universitaria",
+    titulo: "Tecnología para",
+    destacado: "transformar nuestro entorno.",
+    descripcion:
+      "Conoce la Dirección de Carrera de Informática y Sistemas, sus dos carreras, centros y actividades.",
+    acciones: [
+      { texto: "Explorar carreras", href: "#carreras" },
+      { texto: "Ver actividades", href: "#galeria", secundaria: true },
+    ],
   },
   {
-    src: "/laboratorios/computo/laboratorio-02.webp",
-    alt: "Estudiantes trabajando en el laboratorio de cómputo.",
-    nombre: "Laboratorio de cómputo",
-  },
-  {
-    src: "/laboratorios/hardware/hardware-04.webp",
-    alt: "Estudiantes realizando una práctica de hardware.",
-    nombre: "Práctica de hardware",
+    imagen: "/heroes/egresados-informatica-sistemas-2022.webp",
+    alt: "Egresados de Informática y Sistemas durante su acto de graduación en 2022.",
+    nombre: "Comunidad de egresados",
+    titulo: "Egresados:",
+    destacado: "comparte tu trayectoria profesional.",
+    descripcion:
+      "Registra dónde estás y qué haces para mantener el vínculo con la carrera y recibir futuras oportunidades.",
+    acciones: [{ texto: "Registrarme como egresado", href: "/egresados" }],
   },
 ];
 ---
 
-<CarruselHero imagenes={imagenesHero} id="inicio" labelledby="portada-titulo">
-  <div
-    class="contenedor-pagina relative z-10 grid grid-cols-[1.2fr_.8fr] items-center gap-14 py-16 max-[820px]:grid-cols-1 max-[820px]:gap-8 max-[820px]:py-10"
-  >
-    <div class="max-[820px]:order-2 max-[820px]:text-center">
-      <h1
-        class="mb-6 max-w-[780px] font-heading text-[clamp(2.35rem,5vw,4.4rem)] font-semibold leading-[1.08] tracking-[-.025em]"
-        id="portada-titulo"
-      >
-        Tecnología para <span class="text-sky"
-          >transformar nuestro entorno.</span
-        >
-      </h1>
-      <p
-        class="mb-8 max-w-[620px] text-[clamp(1rem,1.45vw,1.08rem)] font-normal leading-[1.7] text-ice"
-      >
-        Conoce la Dirección de Carrera de Informática y Sistemas, sus dos
-        carreras, centros y actividades.
-      </p>
-      <div class="flex flex-wrap gap-3 max-[820px]:justify-center">
-        <a class="boton-principal gap-6" href="#carreras"
-          >Explorar carreras <span aria-hidden="true">↓</span></a
-        >
-        <a class="boton-secundario" href="#galeria"
-          >Ver actividades <span aria-hidden="true">↗</span></a
-        >
-      </div>
-    </div>
-    <aside
-      class="relative grid min-h-[19rem] place-items-center max-[820px]:order-1 max-[820px]:min-h-0"
-      aria-label="Identidad institucional"
-    >
-      <svg
-        class="pointer-events-none absolute inset-0 z-0 h-full w-full"
-        viewBox="0 0 900 700"
-        preserveAspectRatio="xMidYMid meet"
-        fill="none"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <defs>
-          <radialGradient id="resplandor-circuito">
-            <stop stop-color="var(--color-sky)" stop-opacity=".3"></stop>
-            <stop offset="1" stop-color="var(--color-sky)" stop-opacity="0"
-            ></stop>
-          </radialGradient>
-        </defs>
-        <circle cx="450" cy="350" r="230" fill="url(#resplandor-circuito)"
-        ></circle>
-        <g
-          class="lineas-circuito"
-          stroke="var(--color-sky)"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="450" cy="350" r="165" stroke-opacity=".24"></circle>
-          <circle cx="450" cy="350" r="205" stroke-opacity=".16"></circle>
-          <path d="M0 90h170v36h55v45h45" stroke-opacity=".55"></path>
-          <path d="M900 90H730v36h-55v45h-45" stroke-opacity=".55"></path>
-          <path d="M0 150h130v60h90v45h60" stroke-opacity=".6"></path>
-          <path d="M900 150H770v60h-90v45h-60" stroke-opacity=".6"></path>
-          <path d="M0 330h112v-52h90v-40h68" stroke-opacity=".45"></path>
-          <path d="M900 330H788v-52h-90v-40h-68" stroke-opacity=".45"></path>
-          <path d="M0 550h120v-70h100v-40h60" stroke-opacity=".5"></path>
-          <path d="M900 550H780v-70H680v-40h-60" stroke-opacity=".5"></path>
-          <path d="M0 610h150v-44h75v-55h45" stroke-opacity=".5"></path>
-          <path d="M900 610H750v-44h-75v-55h-45" stroke-opacity=".5"></path>
-          <path d="M160 0v74h88v44h32" stroke-opacity=".38"></path>
-          <path d="M740 0v74h-88v44h-32" stroke-opacity=".38"></path>
-          <path d="M170 700v-72h78v-48h32" stroke-opacity=".38"></path>
-          <path d="M730 700v-72h-78v-48h-32" stroke-opacity=".38"></path>
-          <path class="flujo-circuito" d="M0 150h130v60h90v45h60"></path>
-          <path
-            class="flujo-circuito flujo-circuito-secundario"
-            d="M900 150H770v60h-90v45h-60"></path>
-          <path
-            class="flujo-circuito flujo-circuito-terciario"
-            d="M0 550h120v-70h100v-40h60"></path>
-          <path
-            class="flujo-circuito flujo-circuito-cuaternario"
-            d="M900 550H780v-70H680v-40h-60"></path>
-        </g>
-        <g class="nodos-circuito" fill="var(--color-sky)">
-          <circle class="nodo-circuito nodo-circuito-uno" cx="170" cy="90" r="4"
-          ></circle>
-          <circle class="nodo-circuito nodo-circuito-dos" cx="730" cy="90" r="4"
-          ></circle>
-          <circle
-            class="nodo-circuito nodo-circuito-uno"
-            cx="280"
-            cy="255"
-            r="4"></circle>
-          <circle
-            class="nodo-circuito nodo-circuito-dos"
-            cx="620"
-            cy="255"
-            r="4"></circle>
-          <circle
-            class="nodo-circuito nodo-circuito-uno"
-            cx="270"
-            cy="238"
-            r="3.5"></circle>
-          <circle
-            class="nodo-circuito nodo-circuito-dos"
-            cx="630"
-            cy="238"
-            r="3.5"></circle>
-          <circle
-            class="nodo-circuito nodo-circuito-uno"
-            cx="280"
-            cy="440"
-            r="3.5"></circle>
-          <circle
-            class="nodo-circuito nodo-circuito-dos"
-            cx="620"
-            cy="440"
-            r="3.5"
-            fill="var(--color-accent)"></circle>
-          <circle
-            class="nodo-circuito nodo-circuito-uno"
-            cx="150"
-            cy="566"
-            r="4"></circle>
-          <circle
-            class="nodo-circuito nodo-circuito-dos"
-            cx="750"
-            cy="566"
-            r="4"></circle>
-        </g>
-      </svg>
-      <img
-        class="relative z-10 w-[min(78%,22rem)] object-contain drop-shadow-[0_16px_28px_#001e3a55] max-[820px]:w-[min(42vw,11rem)]"
-        src="/escudo-infosis.png"
-        alt="Escudo de la Dirección de Carrera de Informática y Sistemas de la FICH, UAGRM"
-        width="500"
-        height="500"
-        loading="eager"
-        decoding="async"
-      />
-    </aside>
-  </div>
-</CarruselHero>
+<CarruselPortada diapositivas={diapositivas} id="inicio" />

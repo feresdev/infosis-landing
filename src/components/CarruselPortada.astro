@@ -1,0 +1,289 @@
+---
+interface Accion {
+  texto: string;
+  href: string;
+  secundaria?: boolean;
+}
+
+interface Diapositiva {
+  imagen: string;
+  alt: string;
+  nombre: string;
+  titulo: string;
+  destacado?: string;
+  descripcion: string;
+  acciones: Accion[];
+}
+
+interface Props {
+  diapositivas: Diapositiva[];
+  id?: string;
+}
+
+const { diapositivas, id } = Astro.props;
+---
+
+<section
+  class="fondo-institucional relative flex min-h-[clamp(42rem,calc(100svh-72px),52rem)] items-center overflow-hidden border-b border-line text-ice max-[820px]:min-h-[clamp(32rem,calc(84svh-105px),44rem)]"
+  id={id}
+  aria-labelledby="portada-titulo"
+  data-portada-carousel
+>
+  <div
+    class="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+    aria-hidden="true"
+  >
+    {
+      diapositivas.map((diapositiva, indice) => (
+        <div
+          class="hero-slide absolute inset-0 bg-cover bg-center"
+          style={`background-image: url("${diapositiva.imagen}")`}
+          data-portada-slide
+          data-active={indice === 0 ? "true" : "false"}
+          data-label={diapositiva.nombre}
+        />
+      ))
+    }
+  </div>
+  <div
+    class="hero-capa pointer-events-none absolute inset-0 z-[1]"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="contenedor-pagina relative z-10 w-full">
+    {
+      diapositivas.map((diapositiva, indice) => (
+        <div
+          class:list={[
+            "portada-contenido-slide grid grid-cols-[1.2fr_.8fr] items-center gap-14 py-16 max-[820px]:grid-cols-1 max-[820px]:gap-8 max-[820px]:py-10",
+            indice === 0
+              ? ""
+              : "pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 opacity-0",
+          ]}
+          data-portada-content
+          data-active={indice === 0 ? "true" : "false"}
+        >
+          <div class="max-[820px]:order-2 max-[820px]:text-center">
+            {indice === 0 ? (
+              <h1
+                class="mb-6 max-w-[780px] font-heading text-[clamp(2.35rem,5vw,4.4rem)] font-semibold leading-[1.08] tracking-[-.025em]"
+                id="portada-titulo"
+              >
+                {diapositiva.titulo}{" "}
+                {diapositiva.destacado && (
+                  <span class="text-sky">{diapositiva.destacado}</span>
+                )}
+              </h1>
+            ) : (
+              <h2 class="mb-6 max-w-[780px] font-heading text-[clamp(2.35rem,5vw,4.4rem)] font-semibold leading-[1.08] tracking-[-.025em]">
+                {diapositiva.titulo}{" "}
+                {diapositiva.destacado && (
+                  <span class="text-sky">{diapositiva.destacado}</span>
+                )}
+              </h2>
+            )}
+            <p class="mb-8 max-w-[620px] text-[clamp(1rem,1.45vw,1.08rem)] font-normal leading-[1.7] text-ice">
+              {diapositiva.descripcion}
+            </p>
+            <div class="flex flex-wrap gap-3 max-[820px]:justify-center">
+              {diapositiva.acciones.map((accion) => (
+                <a
+                  class:list={[
+                    accion.secundaria ? "boton-secundario" : "boton-principal",
+                    "gap-6",
+                  ]}
+                  href={accion.href}
+                >
+                  {accion.texto}{" "}
+                  <span aria-hidden="true">
+                    {accion.secundaria ? "↗" : "↓"}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div class="relative grid min-h-[19rem] place-items-center max-[820px]:order-1 max-[820px]:min-h-0">
+            <svg
+              class="pointer-events-none absolute inset-0 z-0 h-full w-full"
+              viewBox="0 0 900 700"
+              preserveAspectRatio="xMidYMid meet"
+              fill="none"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <defs>
+                <radialGradient id={`resplandor-portada-${indice}`}>
+                  <stop stop-color="var(--color-sky)" stop-opacity=".3" />
+                  <stop
+                    offset="1"
+                    stop-color="var(--color-sky)"
+                    stop-opacity="0"
+                  />
+                </radialGradient>
+              </defs>
+              <circle
+                cx="450"
+                cy="350"
+                r="230"
+                fill={`url(#resplandor-portada-${indice})`}
+              />
+              <g
+                class="lineas-circuito"
+                stroke="var(--color-sky)"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="450" cy="350" r="165" stroke-opacity=".24" />
+                <circle cx="450" cy="350" r="205" stroke-opacity=".16" />
+                <path d="M0 90h170v36h55v45h45" stroke-opacity=".55" />
+                <path d="M900 90H730v36h-55v45h-45" stroke-opacity=".55" />
+                <path d="M0 150h130v60h90v45h60" stroke-opacity=".6" />
+                <path d="M900 150H770v60h-90v45h-60" stroke-opacity=".6" />
+                <path class="flujo-circuito" d="M0 150h130v60h90v45h60" />
+                <path
+                  class="flujo-circuito flujo-circuito-secundario"
+                  d="M900 150H770v60h-90v45h-60"
+                />
+                <path
+                  class="flujo-circuito flujo-circuito-terciario"
+                  d="M0 550h120v-70h100v-40h60"
+                />
+                <path
+                  class="flujo-circuito flujo-circuito-cuaternario"
+                  d="M900 550H780v-70H680v-40h-60"
+                />
+              </g>
+              <g fill="var(--color-sky)">
+                <circle class="nodo-circuito" cx="170" cy="90" r="4" />
+                <circle
+                  class="nodo-circuito nodo-circuito-dos"
+                  cx="730"
+                  cy="90"
+                  r="4"
+                />
+                <circle class="nodo-circuito" cx="280" cy="255" r="4" />
+                <circle
+                  class="nodo-circuito nodo-circuito-dos"
+                  cx="620"
+                  cy="255"
+                  r="4"
+                />
+              </g>
+            </svg>
+            <img
+              class="relative z-10 w-[min(78%,22rem)] object-contain drop-shadow-[0_16px_28px_#001e3a55] max-[820px]:w-[min(42vw,11rem)]"
+              src="/escudo-infosis.png"
+              alt=""
+              width="500"
+              height="500"
+              loading={indice === 0 ? "eager" : "lazy"}
+              decoding="async"
+            />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div
+    class="pointer-events-none absolute inset-x-0 top-1/2 z-20 flex -translate-y-1/2 items-center justify-between px-[clamp(1rem,4vw,3rem)] max-[820px]:hidden"
+  >
+    <button
+      class="pointer-events-auto grid size-10 cursor-pointer place-items-center rounded-full border border-sky/30 bg-brand-deep/65 text-ice backdrop-blur-sm transition-colors hover:bg-brand-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
+      type="button"
+      data-portada-previous
+      aria-label="Mostrar diapositiva anterior"
+    >
+      <span aria-hidden="true">←</span>
+    </button>
+    <button
+      class="pointer-events-auto grid size-10 cursor-pointer place-items-center rounded-full border border-sky/30 bg-brand-deep/65 text-ice backdrop-blur-sm transition-colors hover:bg-brand-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky"
+      type="button"
+      data-portada-next
+      aria-label="Mostrar diapositiva siguiente"
+    >
+      <span aria-hidden="true">→</span>
+    </button>
+  </div>
+  <div
+    class="forma-acento absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 items-center gap-3 border border-sky/25 bg-brand-deep/65 px-4 py-2 backdrop-blur-sm max-[820px]:hidden"
+    role="group"
+    aria-label="Elegir diapositiva"
+  >
+    {
+      diapositivas.map((diapositiva, indice) => (
+        <button
+          class="hero-indicador size-2.5 cursor-pointer rounded-full bg-ice/55 transition-[background-color,transform] hover:bg-ice"
+          type="button"
+          data-portada-go-to={indice}
+          aria-label={`Mostrar diapositiva: ${diapositiva.nombre}`}
+          aria-pressed={indice === 0 ? "true" : "false"}
+        />
+      ))
+    }
+  </div>
+  <span
+    class="sr-only"
+    data-portada-status
+    aria-live="polite"
+    aria-atomic="true"
+    >Diapositiva 1 de {diapositivas.length}: {diapositivas[0].nombre}</span
+  >
+</section>
+
+<script>
+  const portada = document.querySelector<HTMLElement>(
+    "[data-portada-carousel]",
+  );
+
+  if (portada) {
+    const slides = Array.from(
+      portada.querySelectorAll<HTMLElement>("[data-portada-slide]"),
+    );
+    const contenidos = Array.from(
+      portada.querySelectorAll<HTMLElement>("[data-portada-content]"),
+    );
+    const indicadores = Array.from(
+      portada.querySelectorAll<HTMLButtonElement>("[data-portada-go-to]"),
+    );
+    const estado = portada.querySelector<HTMLElement>("[data-portada-status]");
+    let activa = 0;
+
+    const mostrar = (indice: number) => {
+      activa = (indice + slides.length) % slides.length;
+      slides.forEach((slide, posicion) => {
+        slide.dataset.active = String(posicion === activa);
+      });
+      contenidos.forEach((contenido, posicion) => {
+        const visible = posicion === activa;
+        contenido.dataset.active = String(visible);
+        contenido.classList.toggle("pointer-events-none", !visible);
+        contenido.classList.toggle("absolute", !visible);
+        contenido.classList.toggle("opacity-0", !visible);
+        contenido.classList.toggle("inset-x-0", !visible);
+        contenido.classList.toggle("top-1/2", !visible);
+        contenido.classList.toggle("-translate-y-1/2", !visible);
+      });
+      indicadores.forEach((indicador, posicion) =>
+        indicador.setAttribute("aria-pressed", String(posicion === activa)),
+      );
+      if (estado)
+        estado.textContent = `Diapositiva ${activa + 1} de ${slides.length}: ${slides[activa].dataset.label ?? ""}`;
+    };
+
+    indicadores.forEach((indicador, indice) =>
+      indicador.addEventListener("click", () => mostrar(indice)),
+    );
+    portada
+      .querySelector<HTMLButtonElement>("[data-portada-previous]")
+      ?.addEventListener("click", () => mostrar(activa - 1));
+    portada
+      .querySelector<HTMLButtonElement>("[data-portada-next]")
+      ?.addEventListener("click", () => mostrar(activa + 1));
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.setInterval(() => mostrar(activa + 1), 7000);
+    }
+  }
+</script>
