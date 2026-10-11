@@ -1,53 +1,42 @@
 ---
-import MigasNavegacion from "./MigasNavegacion.astro";
-import CarruselHero from "./CarruselHero.astro";
-import HeroCircuitosEgresados from "./HeroCircuitosEgresados.astro";
+import HeroInterno from "./HeroInterno.astro";
 import { modalidadesTitulacion } from "../datos/titulacion";
 
 const opcionesTitulacion = modalidadesTitulacion.filter(
   ({ nivel }) => nivel === "Licenciatura" || nivel === "Graduación directa",
 );
 
-const imagenHero = {
-  src: "/heroes/egresados-informatica-sistemas-2022.webp",
-  alt: "Egresados de Informática y Sistemas durante su acto de graduación en 2022.",
-  nombre: "Promoción de egresados 2022",
-};
+const imagenesHero = [
+  {
+    src: "/heroes/egresados-informatica-sistemas-2022.webp",
+    alt: "Egresados de Informática y Sistemas durante su acto de graduación en 2022.",
+    nombre: "Promoción de egresados 2022",
+  },
+];
 ---
 
-<section class="border-b border-line bg-paper py-5">
-  <div class="contenedor-pagina">
-    <MigasNavegacion
-      items={[{ texto: "Inicio", href: "/" }, { texto: "Egresados" }]}
-    />
-  </div>
-</section>
-
-<CarruselHero
-  imagenes={[imagenHero]}
+<HeroInterno
+  migas={[{ texto: "Inicio", href: "/" }, { texto: "Egresados" }]}
+  imagenes={imagenesHero}
+  titulo="Tu experiencia fortalece nuestra carrera."
+  descripcion="Comparte tu trayectoria profesional y mantente conectado con la carrera."
   labelledby="egresados-titulo"
-  class="hero-egresados hero-interno"
+  detalleTitulo="Proceso de registro"
+  detalleItems={[
+    "Consulta tus datos académicos.",
+    "Completa tu información profesional.",
+    "Envía tu registro a la carrera.",
+  ]}
 >
-  <div
-    class="contenedor-pagina relative z-10 grid grid-cols-[1.05fr_.95fr] items-center gap-12 py-[clamp(4rem,8vw,7rem)] max-[820px]:grid-cols-1 max-[820px]:gap-8"
+  <button
+    slot="accion"
+    class="boton-principal"
+    type="button"
+    data-open-registration
   >
-    <div class="max-[820px]:order-2 max-[820px]:text-center">
-      <h1
-        id="egresados-titulo"
-        class="mb-5 max-w-[700px] font-heading text-[clamp(2.7rem,6vw,5rem)] font-semibold leading-[1.05] tracking-[-.025em] text-ice"
-      >
-        Tu experiencia <span class="text-sky">fortalece nuestra carrera.</span>
-      </h1>
-      <p class="mb-8 max-w-[650px] text-lg leading-8 text-ice/80">
-        Comparte tu trayectoria profesional y mantente conectado con la carrera.
-      </p>
-      <button class="boton-principal" type="button" data-open-registration
-        >Iniciar mi registro <span aria-hidden="true">↓</span></button
-      >
-    </div>
-    <HeroCircuitosEgresados />
-  </div>
-</CarruselHero>
+    Iniciar mi registro <span aria-hidden="true">↓</span>
+  </button>
+</HeroInterno>
 
 <dialog
   class="registro-modal w-[min(100%_-_2rem,56rem)] max-w-none overflow-visible border border-line bg-paper p-0 text-ink shadow-[0_24px_80px_rgb(0_0_0_/_45%)] backdrop:bg-[rgb(3_10_16_/_78%)] backdrop:backdrop-blur-sm"
@@ -338,7 +327,7 @@ const imagenHero = {
         </div>
       </form>
       <div
-        class="forma-acento hidden border border-[var(--egresados-gold-dark)] bg-[rgb(245_197_47_/_10%)] p-6 text-center sm:p-8"
+        class="forma-acento hidden border border-sky/30 bg-sky/10 p-6 text-center sm:p-8"
         data-registration-success
         role="status"
         aria-live="polite"

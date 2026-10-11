@@ -209,10 +209,10 @@ public/
 │   ├── capacitacion/
 │   ├── computo/
 │   └── hardware/
-├── centro-capacitacion.png
-├── centro-computo.png
-├── centro-hardware.png
-├── escudo-infosis.png
+├── centro-capacitacion.webp
+├── centro-computo.webp
+├── centro-hardware.webp
+├── escudo-infosis.webp
 ├── portada.webp
 ├── patrones/
 └── robots.txt

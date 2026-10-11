@@ -1,103 +1,24 @@
 ---
-import Layout from "../components/Layout.astro";
-import BarraNavegacion from "../components/BarraNavegacion.astro";
-import PiePagina from "../components/PiePagina.astro";
+import PaginaInstitucional from "../components/PaginaInstitucional.astro";
+import HeroEstado from "../components/HeroEstado.astro";
 ---
 
-<Layout
+<PaginaInstitucional
   title="Página no encontrada · FICH · UAGRM"
   description="La página que buscas no está disponible en el sitio de Informática y Sistemas de la FICH · UAGRM."
   robots="noindex, nofollow"
 >
-  <BarraNavegacion />
-  <main id="contenido">
-    <section
-      class="fondo-institucional relative flex min-h-[clamp(38rem,calc(100svh-72px),50rem)] items-center overflow-hidden border-b border-line text-ice max-[820px]:min-h-[calc(78svh-105px)]"
-      aria-labelledby="error-titulo"
+  <HeroEstado
+    codigo="404"
+    titulo="Esta ruta"
+    destacado="no existe."
+    labelledby="error-titulo"
+  >
+    <a class="boton-principal" href="/"
+      >Volver al inicio <span aria-hidden="true">↗</span></a
     >
-      <div
-        class="contenedor-pagina relative z-10 grid grid-cols-1 justify-items-center gap-2 text-center"
-      >
-        <div class="order-2 max-w-[700px]">
-          <h1
-            id="error-titulo"
-            class="mb-5 max-w-[700px] font-heading text-[clamp(2.7rem,6vw,5rem)] font-semibold leading-[1.05] tracking-[-.025em]"
-          >
-            Esta ruta <span class="text-sky">no existe.</span>
-          </h1>
-          <div class="flex flex-wrap justify-center gap-3">
-            <a class="boton-principal" href="/"
-              >Volver al inicio <span aria-hidden="true">↗</span></a
-            >
-            <a class="boton-secundario" href="/#carreras"
-              >Explorar carreras <span aria-hidden="true">→</span></a
-            >
-          </div>
-        </div>
-
-        <div
-          class="relative order-1 grid min-h-[15rem] w-full max-w-[48rem] place-items-center max-[820px]:min-h-[11rem]"
-          aria-hidden="true"
-        >
-          <svg
-            class="pointer-events-none absolute inset-0 h-full w-full"
-            viewBox="0 0 900 700"
-            preserveAspectRatio="xMidYMid meet"
-            fill="none"
-            focusable="false"
-          >
-            <defs>
-              <radialGradient id="resplandor-404">
-                <stop stop-color="var(--color-sky)" stop-opacity=".3"></stop>
-                <stop offset="1" stop-color="var(--color-sky)" stop-opacity="0"
-                ></stop>
-              </radialGradient>
-            </defs>
-            <circle cx="450" cy="350" r="230" fill="url(#resplandor-404)"
-            ></circle>
-            <g
-              class="lineas-circuito"
-              stroke="var(--color-sky)"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M0 90h170v36h55v45h45" stroke-opacity=".55"></path>
-              <path d="M900 90H730v36h-55v45h-45" stroke-opacity=".55"></path>
-              <path d="M0 150h130v60h90v45h60" stroke-opacity=".6"></path>
-              <path d="M900 150H770v60h-90v45h-60" stroke-opacity=".6"></path>
-              <path class="flujo-circuito" d="M0 150h130v60h90v45h60"></path>
-              <path
-                class="flujo-circuito flujo-circuito-secundario"
-                d="M900 150H770v60h-90v45h-60"></path>
-              <path
-                class="flujo-circuito flujo-circuito-terciario"
-                d="M0 550h120v-70h100v-40h60"></path>
-              <path
-                class="flujo-circuito flujo-circuito-cuaternario"
-                d="M900 550H780v-70H680v-40h-60"></path>
-            </g>
-            <g fill="var(--color-sky)">
-              <circle class="nodo-circuito" cx="170" cy="90" r="4"></circle>
-              <circle
-                class="nodo-circuito nodo-circuito-dos"
-                cx="730"
-                cy="90"
-                r="4"></circle>
-              <circle class="nodo-circuito" cx="280" cy="255" r="4"></circle>
-              <circle
-                class="nodo-circuito nodo-circuito-dos"
-                cx="620"
-                cy="255"
-                r="4"></circle>
-            </g>
-          </svg>
-          <span
-            class="relative z-10 font-heading text-[clamp(5rem,14vw,10rem)] font-bold leading-none text-ice/90"
-            >404</span
-          >
-        </div>
-      </div>
-    </section>
-  </main>
-  <PiePagina />
-</Layout>
+    <a class="boton-secundario" href="/#carreras"
+      >Explorar carreras <span aria-hidden="true">→</span></a
+    >
+  </HeroEstado>
+</PaginaInstitucional>

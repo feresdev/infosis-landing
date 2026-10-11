@@ -1,7 +1,5 @@
 ---
-import Layout from "../components/Layout.astro";
-import BarraNavegacion from "../components/BarraNavegacion.astro";
-import PiePagina from "../components/PiePagina.astro";
+import PaginaInstitucional from "../components/PaginaInstitucional.astro";
 import Portada from "../components/secciones/Portada.astro";
 import SeccionCarreras from "../components/secciones/SeccionCarreras.astro";
 import SeccionCentros from "../components/secciones/SeccionCentros.astro";
@@ -10,19 +8,15 @@ import SeccionVidaUniversitaria from "../components/secciones/SeccionVidaUnivers
 import SeccionAdmision from "../components/secciones/SeccionAdmision.astro";
 ---
 
-<Layout
+<PaginaInstitucional
   title="Ingeniería Informática e Ingeniería en Sistemas · FICH · UAGRM"
   description="Conoce Ingeniería Informática e Ingeniería en Sistemas de la FICH · UAGRM: carreras, centros, actividades, oportunidades y admisión en Camiri."
   imageAlt="Dirección de Carrera de Informática y Sistemas de la FICH · UAGRM"
 >
-  <BarraNavegacion />
-  <main id="contenido">
-    <Portada />
-    <SeccionCarreras />
-    <SeccionCentros />
-    <SeccionVidaUniversitaria />
-    <SeccionGaleria />
-    <SeccionAdmision />
-  </main>
-  <PiePagina />
-</Layout>
+  <Portada />
+  <SeccionCarreras />
+  <SeccionCentros />
+  <SeccionVidaUniversitaria />
+  <SeccionGaleria />
+  <SeccionAdmision />
+</PaginaInstitucional>

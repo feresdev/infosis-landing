@@ -17,7 +17,7 @@ export interface Centro {
 export const centros: Centro[] = [
   {
     nombre: "Laboratorio de Cómputo",
-    logo: "/centro-computo.png",
+    logo: "/centro-computo.webp",
     resumen:
       "Espacio para prácticas, cursos presenciales y actividades académicas con equipos informáticos.",
     imagen: "/laboratorios/computo/laboratorio-02.webp",
@@ -30,7 +30,7 @@ export const centros: Centro[] = [
   },
   {
     nombre: "Laboratorio de Hardware y Redes",
-    logo: "/centro-hardware.png",
+    logo: "/centro-hardware.webp",
     resumen:
       "Reparación y mantenimiento de equipos, instalación de software, configuración de redes, respaldo de datos y soporte TIC.",
     etiquetaContacto: "Contactar sus servicios",
@@ -44,7 +44,7 @@ export const centros: Centro[] = [
   },
   {
     nombre: "Centro de Investigación y Capacitación",
-    logo: "/centro-capacitacion.png",
+    logo: "/centro-capacitacion.webp",
     resumen:
       "Impulsa proyectos de investigación y capacitación en informática y sistemas mediante cursos y actividades especializadas.",
     imagen: "/laboratorios/capacitacion/capacitacion-06.webp",
