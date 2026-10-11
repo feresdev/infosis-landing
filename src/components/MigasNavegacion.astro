@@ -1,0 +1,37 @@
+---
+interface Item {
+  texto: string;
+  href?: string;
+}
+
+interface Props {
+  items: Item[];
+  class?: string;
+}
+
+const { items, class: className } = Astro.props;
+---
+
+<nav
+  class:list={["text-sm text-muted", className]}
+  aria-label="Ruta de navegación"
+>
+  <ol class="m-0 flex list-none flex-wrap gap-2 p-0">
+    {
+      items.map((item, indice) => (
+        <>
+          {indice > 0 && <li aria-hidden="true">/</li>}
+          <li class={item.href ? undefined : "font-semibold text-ink"}>
+            {item.href ? (
+              <a class="hover:text-sky" href={item.href}>
+                {item.texto}
+              </a>
+            ) : (
+              <span aria-current="page">{item.texto}</span>
+            )}
+          </li>
+        </>
+      ))
+    }
+  </ol>
+</nav>

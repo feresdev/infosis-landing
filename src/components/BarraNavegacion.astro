@@ -76,6 +76,12 @@ const esInicio = Astro.url.pathname === "/";
         ))
       }
       <a
+        class="whitespace-nowrap py-2.5 transition-colors duration-200 hover:text-sky max-[820px]:border-b max-[820px]:border-line/50"
+        href="/egresados"
+      >
+        Egresados
+      </a>
+      <a
         class="boton-principal whitespace-nowrap px-3.5 py-2 text-sm max-[820px]:mt-3 max-[820px]:justify-center max-[820px]:px-3 max-[820px]:py-2.5 max-[820px]:text-[.9rem]"
         href={esInicio ? "#admision" : "/#admision"}
         >Admisión <span aria-hidden="true">↗</span></a
