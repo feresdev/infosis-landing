@@ -461,8 +461,8 @@ const imagenHero = {
   closeRegistration?.addEventListener("click", () =>
     registrationDialog?.close(),
   );
-  registrationDialog?.addEventListener("click", (event) => {
-    if (event.target === registrationDialog) registrationDialog.close();
+  registrationDialog?.addEventListener("cancel", (event) => {
+    event.preventDefault();
   });
 
   const setStatus = (
