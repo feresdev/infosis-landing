@@ -82,9 +82,8 @@ const imagenesHero = [
             name="registro"
             autocomplete="off"
             inputmode="numeric"
-            pattern="[0-9]{10}"
-            minlength="10"
-            maxlength="10"
+            pattern="[0-9]{1,12}"
+            maxlength="12"
             placeholder="Ejemplo: 2212345678"
             required
           />
@@ -759,10 +758,10 @@ const imagenesHero = [
       );
       return;
     }
-    if (!/^\d{10}$/.test(registro)) {
+    if (!/^\d{1,12}$/.test(registro)) {
       setStatus(
         lookupStatus,
-        "El número de registro debe tener exactamente 10 dígitos.",
+        "El número de registro debe tener como máximo 12 dígitos.",
         true,
       );
       return;
