@@ -82,10 +82,10 @@ const imagenesHero = [
             name="registro"
             autocomplete="off"
             inputmode="numeric"
-            pattern="22[0-9]{7}"
-            minlength="9"
-            maxlength="9"
-            placeholder="Ej.: 221234567"
+            pattern="[0-9]{10}"
+            minlength="10"
+            maxlength="10"
+            placeholder="Ej.: 2212345678"
             required
           />
           <button class="boton-principal justify-center" type="submit"
@@ -759,10 +759,10 @@ const imagenesHero = [
       );
       return;
     }
-    if (!/^22\d{7}$/.test(registro)) {
+    if (!/^\d{10}$/.test(registro)) {
       setStatus(
         lookupStatus,
-        "El número de registro debe tener 9 dígitos y comenzar con 22.",
+        "El número de registro debe tener exactamente 10 dígitos.",
         true,
       );
       return;
