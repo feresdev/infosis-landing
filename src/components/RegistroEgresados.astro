@@ -857,6 +857,22 @@ const imagenesHero = [
     event.preventDefault();
     if (!registrationForm.reportValidity()) return;
     const formData = new FormData(registrationForm);
+    const getFormValue = (name: string) => {
+      const value = formData.get(name);
+      return typeof value === "string" ? value.trim() : value;
+    };
+    const addIfFilled = (
+      target: Record<string, unknown>,
+      name: string,
+      value: unknown,
+    ) => {
+      if (typeof value === "string") {
+        const normalizedValue = value.trim();
+        if (normalizedValue) target[name] = normalizedValue;
+      } else if (value !== null && value !== undefined) {
+        target[name] = value;
+      }
+    };
     const carreras = Array.from(
       document.querySelectorAll<HTMLInputElement>(
         "[name^='carreras'][name$='[codigoCarrera]']",
@@ -870,30 +886,46 @@ const imagenesHero = [
             `carreras[${index}][${name}]`,
           ) as HTMLInputElement
         )?.value ?? "";
-      return {
-        codigoCarrera: value("codigoCarrera"),
-        plan: value("plan"),
-        tipoCarrera: value("tipoCarrera"),
-        anioEgreso: Number(value("anioEgreso")),
-        modalidadTitulacion: value("modalidadTitulacion"),
-      };
+      const carrera: Record<string, unknown> = {};
+      addIfFilled(carrera, "codigoCarrera", value("codigoCarrera"));
+      addIfFilled(carrera, "plan", value("plan"));
+      addIfFilled(carrera, "tipoCarrera", value("tipoCarrera"));
+      const anioEgreso = value("anioEgreso");
+      addIfFilled(
+        carrera,
+        "anioEgreso",
+        anioEgreso ? Number(anioEgreso) : undefined,
+      );
+      addIfFilled(carrera, "modalidadTitulacion", value("modalidadTitulacion"));
+      return carrera;
     });
-    const payload = {
-      tokenPreRegistro: formData.get("tokenPreRegistro"),
-      sexo: formData.get("sexo"),
-      fechaNacimiento: formData.get("fechaNacimiento") || null,
-      ocupacionActual: formData.get("ocupacionActual") || null,
-      empresa: formData.get("empresa") || null,
-      cargo: formData.get("cargo") || null,
-      ciudadRadicacion: formData.get("ciudadRadicacion") || null,
-      celular: formData.get("celular")
-        ? normalizarCelularBolivia(formData.get("celular")?.toString() ?? "")
-        : null,
-      celularEmpresa: formData.get("celularEmpresa") || null,
-      correoPersonal: formData.get("correoPersonal") || null,
-      correoEmpresa: formData.get("correoEmpresa") || null,
-      carreras,
-    };
+    const payload: Record<string, unknown> = { carreras };
+    addIfFilled(payload, "tokenPreRegistro", getFormValue("tokenPreRegistro"));
+    addIfFilled(payload, "sexo", getFormValue("sexo"));
+    addIfFilled(payload, "fechaNacimiento", getFormValue("fechaNacimiento"));
+    addIfFilled(payload, "ocupacionActual", getFormValue("ocupacionActual"));
+    addIfFilled(payload, "empresa", getFormValue("empresa"));
+    addIfFilled(payload, "cargo", getFormValue("cargo"));
+    addIfFilled(payload, "ciudadRadicacion", getFormValue("ciudadRadicacion"));
+    const celular = getFormValue("celular");
+    addIfFilled(
+      payload,
+      "celular",
+      typeof celular === "string" ? normalizarCelularBolivia(celular) : celular,
+    );
+    addIfFilled(payload, "celularEmpresa", getFormValue("celularEmpresa"));
+    addIfFilled(payload, "correoPersonal", getFormValue("correoPersonal"));
+    addIfFilled(payload, "correoEmpresa", getFormValue("correoEmpresa"));
+    addIfFilled(
+      payload,
+      "aceptacion",
+      registrationForm.elements.namedItem("aceptacion") instanceof
+        HTMLInputElement &&
+        (registrationForm.elements.namedItem("aceptacion") as HTMLInputElement)
+          .checked
+        ? true
+        : undefined,
+    );
     const button = registrationForm.querySelector<HTMLButtonElement>(
       "button[type=submit]",
     );
