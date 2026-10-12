@@ -23,7 +23,7 @@ const { codigo, titulo, destacado, labelledby } = Astro.props;
         id={labelledby}
         class="mb-5 max-w-[700px] font-heading text-[clamp(2.7rem,6vw,5rem)] font-semibold leading-[1.05] tracking-[-.025em]"
       >
-        {titulo}
+        {titulo}{" "}
         <span class="text-sky">{destacado}</span>
       </h1>
       <div class="flex flex-wrap justify-center gap-3">
